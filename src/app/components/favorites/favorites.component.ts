@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FavoritesService } from "../favorites.service";
+import { FavoritesService } from "../../services/favorites.service";
 import { CommonModule } from "@angular/common";
 @Component({
 	selector: "app-favorites",

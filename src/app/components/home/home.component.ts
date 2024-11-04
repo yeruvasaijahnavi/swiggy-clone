@@ -2,7 +2,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { FavoritesService } from "../favorites.service";
+import { FavoritesService } from "../../services/favorites.service";
 
 interface Restaurant {
 	name: string;
