@@ -3,8 +3,10 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { FavoritesService } from "../../services/favorites.service";
+import { RouterLink } from "@angular/router";
 
 interface Restaurant {
+	id: number;
 	name: string;
 	cuisine: string;
 	location: string;
@@ -16,24 +18,27 @@ interface Restaurant {
 	standalone: true,
 	templateUrl: "./home.component.html",
 	styleUrls: ["./home.component.css"],
-	imports: [CommonModule, FormsModule],
+	imports: [CommonModule, FormsModule, RouterLink],
 })
 export class HomeComponent {
 	constructor(private favoritesService: FavoritesService) {}
 	restaurants: Restaurant[] = [
 		{
+			id: 1,
 			name: "Restaurant A",
 			cuisine: "Italian",
 			location: "Location A",
 			imageUrl: "https://via.placeholder.com/150",
 		},
 		{
+			id: 2,
 			name: "Restaurant B",
 			cuisine: "Chinese",
 			location: "Location B",
 			imageUrl: "https://via.placeholder.com/150",
 		},
 		{
+			id: 3,
 			name: "Restaurant C",
 			cuisine: "Indian",
 			location: "Location C",

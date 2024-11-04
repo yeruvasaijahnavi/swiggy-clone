@@ -18,4 +18,12 @@ export const routes: Routes = [
 			);
 		},
 	},
+	{
+		path: "restaurant/:id",
+		loadComponent() {
+			return import(
+				"./components/restaurant-menu/restaurant-menu.component"
+			).then((m) => m.RestaurantMenuComponent);
+		},
+	},
 ];
