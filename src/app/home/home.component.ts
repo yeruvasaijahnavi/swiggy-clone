@@ -2,6 +2,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { FavoritesService } from "../favorites.service";
 
 interface Restaurant {
 	name: string;
@@ -18,6 +19,7 @@ interface Restaurant {
 	imports: [CommonModule, FormsModule],
 })
 export class HomeComponent {
+	constructor(private favoritesService: FavoritesService) {}
 	restaurants: Restaurant[] = [
 		{
 			name: "Restaurant A",
@@ -72,5 +74,10 @@ export class HomeComponent {
 		return this.cuisines.filter((cuisine) =>
 			cuisine.name.toLowerCase().includes(this.searchTerm.toLowerCase())
 		);
+	}
+
+	addToFavorites(restaurant: any) {
+		this.favoritesService.addFavorite(restaurant);
+		alert(`${restaurant.name} has been added to favorites!`);
 	}
 }

@@ -16,5 +16,11 @@
 			class="rounded-md mb-2"
 		/>
 		<h3 class="text-lg font-semibold">{{ favorite.name }}</h3>
+		<button
+			(click)="removeFromFavorites(favorite)"
+			class="mt-2 bg-red-500 text-white rounded px-4 py-2"
+		>
+			Remove from Favorites
+		</button>
 	</div>
 </div>
