@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FavoritesService } from "../../services/favorites.service";
 import { CommonModule } from "@angular/common";
 @Component({
@@ -11,17 +11,14 @@ import { CommonModule } from "@angular/common";
 export class FavoritesComponent {
 	favorites: any[] = []; // Array to hold favorite foods
 
-	constructor(private favoritesService: FavoritesService) {
-		this.loadFavorites();
-	}
+	constructor(private favoritesService: FavoritesService) {}
 
-	// Method to load favorites from localStorage
-	loadFavorites() {
+	ngOnInit(): void {
 		this.favorites = this.favoritesService.getFavorites();
 	}
 
 	removeFromFavorites(item: any) {
 		this.favoritesService.removeFavorite(item);
-		this.loadFavorites(); // Refresh the favorites list
+		this.favorites = this.favoritesService.getFavorites(); // refresh list
 	}
 }
