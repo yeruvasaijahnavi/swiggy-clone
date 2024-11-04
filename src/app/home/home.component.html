@@ -1,24 +1,49 @@
-<div class="container mx-auto px-4">
-	<header class="my-4">
-		<h1 class="text-3xl font-bold">Welcome to Swiggy Clone</h1>
+<div class="container mx-auto p-4">
+	<h1 class="text-3xl font-bold mb-4">Discover Delicious Food</h1>
+
+	<div class="mb-6">
 		<input
 			type="text"
 			placeholder="Search for food..."
-			class="mt-2 p-2 border rounded w-full"
+			class="border border-gray-300 rounded-md p-2 w-full"
 		/>
-	</header>
+	</div>
 
-	<section class="my-6">
-		<h2 class="text-2xl font-semibold">Featured Restaurants</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			<!-- Restaurant cards will go here -->
+	<h2 class="text-2xl font-semibold mb-2">Featured Restaurants</h2>
+	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+		<div
+			*ngFor="let restaurant of featuredRestaurants"
+			class="border rounded-lg overflow-hidden shadow-md"
+		>
+			<img
+				[src]="restaurant.imageUrl"
+				alt="{{ restaurant.name }}"
+				class="w-full h-32 object-cover"
+			/>
+			<div class="p-4">
+				<h3 class="font-bold text-lg">{{ restaurant.name }}</h3>
+				<p class="text-gray-600">
+					{{ restaurant.cuisine }} - {{ restaurant.location }}
+				</p>
+				<p class="text-yellow-500">{{ restaurant.rating }} ★</p>
+			</div>
 		</div>
-	</section>
+	</div>
 
-	<section class="my-6">
-		<h2 class="text-2xl font-semibold">Popular Cuisines</h2>
-		<div class="flex space-x-4">
-			<!-- Cuisines will be displayed here -->
+	<h2 class="text-2xl font-semibold mb-2 mt-6">Popular Cuisines</h2>
+	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+		<div
+			*ngFor="let cuisine of popularCuisines"
+			class="border rounded-lg overflow-hidden shadow-md"
+		>
+			<img
+				[src]="cuisine.imageUrl"
+				alt="{{ cuisine.name }}"
+				class="w-full h-24 object-cover"
+			/>
+			<div class="p-2 text-center">
+				<h3 class="font-bold">{{ cuisine.name }}</h3>
+			</div>
 		</div>
-	</section>
+	</div>
 </div>
