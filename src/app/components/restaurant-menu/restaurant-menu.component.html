@@ -1,19 +1,16 @@
-<div class="restaurant-menu">
+<div class="restaurant-menu" *ngIf="restaurant">
 	<h2 class="text-2xl font-bold">{{ restaurant.name }}</h2>
 	<p>{{ restaurant.description }}</p>
 	<h3 class="text-xl mt-4">Menu Items</h3>
 	<div
 		class="menu-items grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
 	>
-		<div
-			*ngFor="let item of menuItems"
-			class="menu-item border p-4 rounded-lg"
-		>
-			<h4 class="text-lg">{{ item.name }}</h4>
-			<p>Price: ₹{{ item.price }}</p>
+		<div *ngFor="let menuItem of menuItems" class="border rounded-lg p-4">
+			<h3 class="text-lg font-semibold">{{ menuItem.name }}</h3>
+			<p class="text-gray-600">Price: {{ menuItem.price | currency }}</p>
 			<button
-				(click)="addToCart(item)"
-				class="bg-blue-500 text-white p-2 rounded"
+				(click)="addToCart(menuItem)"
+				class="bg-blue-500 text-white rounded px-4 py-2"
 			>
 				Add to Cart
 			</button>

@@ -1,34 +1,54 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CartService } from "../../services/cart.service";
+import {
+	DataService,
+	MenuItem,
+	Review,
+	Restaurant,
+} from "../../services/data.service"; // Import Restaurant here
 import { CommonModule } from "@angular/common";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "app-restaurant-menu",
 	standalone: true,
 	imports: [CommonModule],
 	templateUrl: "./restaurant-menu.component.html",
-	styleUrl: "./restaurant-menu.component.css",
+	styleUrls: ["./restaurant-menu.component.css"],
 })
-export class RestaurantMenuComponent {
-	restaurant: any; // This will hold the restaurant details
-	menuItems: any[] = []; // This will hold the menu items
+export class RestaurantMenuComponent implements OnInit {
+	menuItems: MenuItem[] = [];
+	reviews: Review[] = [];
+	restaurant: Restaurant | null = null; // Define the restaurant property
+	restaurantId!: number;
 
-	constructor(private cartService: CartService) {}
+	constructor(
+		private cartService: CartService,
+		private dataService: DataService,
+		private route: ActivatedRoute
+	) {}
 
-	ngOnInit() {
-		// Fetch restaurant details and menu items (you can use static data for now)
-		this.restaurant = {
-			name: "Example Restaurant",
-			description: "A great place to eat!",
-		};
-		this.menuItems = [
-			{ id: 1, name: "Pizza", price: 500 },
-			{ id: 2, name: "Burger", price: 300 },
-			{ id: 3, name: "Pasta", price: 400 },
-		];
+	ngOnInit(): void {
+		this.restaurantId = Number(this.route.snapshot.paramMap.get("id"));
+
+		// Fetching the menu items and reviews
+		this.menuItems = this.dataService
+			.getMenuItems()
+			.filter((item) => item.restaurantId === this.restaurantId);
+
+		this.reviews = this.dataService
+			.getReviews()
+			.filter((review) => review.restaurantId === this.restaurantId);
+
+		// Fetching the restaurant details safely
+		const foundRestaurant = this.dataService
+			.getRestaurants()
+			.find((restaurant) => restaurant.id === this.restaurantId);
+		this.restaurant = foundRestaurant ? foundRestaurant : null; // Setting to null if not found
 	}
 
-	addToCart(menuItem: { id: number; name: string; price: number }) {
-		this.cartService.addToCart({ ...menuItem, quantity: 1 }); // Add with default quantity of 1
+	addToCart(menuItem: MenuItem): void {
+		this.cartService.addToCart({ ...menuItem, quantity: 1 });
+		this.cartService.updateCartCount();
 	}
 }

@@ -1,4 +1,12 @@
 <nav class="flex gap-x-2">
 	<a routerLink="/">{{ title }}</a>
 	<a routerLink="/favs">Favorites</a>
+	<a routerLink="/cart" class="relative">
+		Cart
+		<span
+			*ngIf="totalItems > 0"
+			class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"
+			>{{ totalItems }}</span
+		>
+	</a>
 </nav>

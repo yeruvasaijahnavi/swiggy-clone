@@ -1,9 +1,10 @@
 // home.component.ts
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { FavoritesService } from "../../services/favorites.service";
 import { RouterLink } from "@angular/router";
+import { DataService } from "../../services/data.service";
 
 interface Restaurant {
 	id: number;
@@ -20,32 +21,9 @@ interface Restaurant {
 	styleUrls: ["./home.component.css"],
 	imports: [CommonModule, FormsModule, RouterLink],
 })
-export class HomeComponent {
-	constructor(private favoritesService: FavoritesService) {}
-	restaurants: Restaurant[] = [
-		{
-			id: 1,
-			name: "Restaurant A",
-			cuisine: "Italian",
-			location: "Location A",
-			imageUrl: "https://via.placeholder.com/150",
-		},
-		{
-			id: 2,
-			name: "Restaurant B",
-			cuisine: "Chinese",
-			location: "Location B",
-			imageUrl: "https://via.placeholder.com/150",
-		},
-		{
-			id: 3,
-			name: "Restaurant C",
-			cuisine: "Indian",
-			location: "Location C",
-			imageUrl: "https://via.placeholder.com/150",
-		},
-	];
-
+export class HomeComponent implements OnInit {
+	restaurants: Restaurant[] = [];
+	searchTerm: string = "";
 	cuisines: { name: string; imageUrl: string }[] = [
 		{
 			name: "Italian",
@@ -65,14 +43,25 @@ export class HomeComponent {
 		},
 	];
 
-	searchTerm: string = "";
+	constructor(
+		private favoritesService: FavoritesService,
+		private dataService: DataService
+	) {}
+
+	ngOnInit(): void {
+		// Fetch restaurants only once
+		this.restaurants = this.dataService.getRestaurants();
+	}
 
 	get filteredRestaurants() {
-		return this.restaurants.filter((restaurant) =>
-			restaurant.name
-				.toLowerCase()
-				.includes(this.searchTerm.toLowerCase())
-		);
+		// Use a local variable to filter instead of assigning to restaurants
+		return this.searchTerm
+			? this.restaurants.filter((restaurant) =>
+					restaurant.name
+						.toLowerCase()
+						.includes(this.searchTerm.toLowerCase())
+			  )
+			: this.restaurants;
 	}
 
 	get filteredCuisines() {
@@ -81,7 +70,7 @@ export class HomeComponent {
 		);
 	}
 
-	addToFavorites(restaurant: any) {
+	addToFavorites(restaurant: Restaurant) {
 		this.favoritesService.addFavorite(restaurant);
 		alert(`${restaurant.name} has been added to favorites!`);
 	}
