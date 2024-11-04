@@ -26,4 +26,12 @@ export const routes: Routes = [
 			).then((m) => m.RestaurantMenuComponent);
 		},
 	},
+	// 	{
+	// 		path: "cart",
+	// 		loadComponent() {
+	// 			return import("./components/cart/cart.component").then(
+	// 				(m) => m.CartComponent
+	// 			);
+	// 		},
+	// 	},
 ];

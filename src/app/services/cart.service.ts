@@ -1,27 +1,41 @@
 import { Injectable } from "@angular/core";
 
+interface CartItem {
+	id: number;
+	name: string;
+	price: number;
+	quantity: number;
+}
+
 @Injectable({
 	providedIn: "root",
 })
 export class CartService {
-	private cartItems: any[] = [];
-	constructor() {}
+	private cart: CartItem[] = [];
 
-	addToCart(item: any) {
-		this.cartItems.push(item);
-	}
-
-	removeFromCart(item: any) {
-		this.cartItems = this.cartItems.filter(
-			(cartItem) => cartItem.id !== item.id
+	addToCart(item: CartItem) {
+		const existingItem = this.cart.find(
+			(cartItem) => cartItem.id === item.id
 		);
+		if (existingItem) {
+			existingItem.quantity += item.quantity;
+		} else {
+			this.cart.push(item);
+		}
 	}
 
-	getCartItems() {
-		return this.cartItems;
+	removeFromCart(itemId: number) {
+		this.cart = this.cart.filter((cartItem) => cartItem.id !== itemId);
 	}
 
-	calculateTotalPrice() {
-		return this.cartItems.reduce((total, item) => total + item.price, 0);
+	getCartItems(): CartItem[] {
+		return this.cart;
+	}
+
+	getTotalPrice(): number {
+		return this.cart.reduce(
+			(total, item) => total + item.price * item.quantity,
+			0
+		);
 	}
 }

@@ -28,8 +28,7 @@ export class RestaurantMenuComponent {
 		];
 	}
 
-	addToCart(item: any) {
-		this.cartService.addToCart(item);
-		console.log(this.cartService.getCartItems()); // Check the cart items in the console
+	addToCart(menuItem: { id: number; name: string; price: number }) {
+		this.cartService.addToCart({ ...menuItem, quantity: 1 }); // Add with default quantity of 1
 	}
 }
