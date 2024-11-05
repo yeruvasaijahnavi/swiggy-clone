@@ -39,7 +39,7 @@ export class DataService {
 			location: "Downtown",
 			imageUrl: "https://via.placeholder.com/150",
 			description: "Delicious Indian dishes with rich flavors.",
-			duration: "30-45 minutes",
+			duration: "30-45 mins",
 			rating: 4.5,
 		},
 		{
@@ -49,7 +49,7 @@ export class DataService {
 			location: "City Center",
 			imageUrl: "https://via.placeholder.com/150",
 			description: "Authentic Italian cuisine with a modern twist.",
-			duration: "45-60 minutes",
+			duration: "45-60 mins",
 			rating: 4.0,
 		},
 	];

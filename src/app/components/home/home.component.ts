@@ -29,19 +29,19 @@ export class HomeComponent implements OnInit {
 	searchTerm: string = "";
 	cuisines: { name: string; imageUrl: string }[] = [
 		{
-			name: "Italian",
+			name: "Pizza",
 			imageUrl: "https://via.placeholder.com/100",
 		},
 		{
-			name: "Chinese",
+			name: "Noodles",
 			imageUrl: "https://via.placeholder.com/100",
 		},
 		{
-			name: "Indian",
+			name: "Biryani",
 			imageUrl: "https://via.placeholder.com/100",
 		},
 		{
-			name: "Mexican",
+			name: "Tacos",
 			imageUrl: "https://via.placeholder.com/100",
 		},
 	];
