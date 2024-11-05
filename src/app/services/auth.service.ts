@@ -1,45 +1,43 @@
 // src/app/services/auth.service.ts
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-
-interface User {
-	id: number;
-	username: string;
-	password: string;
-}
+import { Observable, of } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 
 @Injectable({
 	providedIn: "root",
 })
 export class AuthService {
-	private apiUrl = "https://mockapi.io/users"; // Replace with your mock API URL
-	private currentUser: User | null = null;
+	private isAuthenticated = false;
+	private apiUrl = "https://6729a2e76d5fa4901b6dc28a.mockapi.io/api/v1/users";
 
 	constructor(private http: HttpClient) {}
 
-	login(username: string, password: string): Observable<User> {
-		return this.http.post<User>(`${this.apiUrl}/login`, {
-			username,
-			password,
-		});
+	login(username: string, password: string): Observable<boolean> {
+		return this.http
+			.get<any[]>(`${this.apiUrl}?email=${username}&password=${password}`)
+			.pipe(
+				map((users) => {
+					if (users.length) {
+						// User authenticated successfully
+						this.isAuthenticated = true;
+						localStorage.setItem("user", JSON.stringify(users[0]));
+						return true;
+					} else {
+						// Authentication failed
+						return false;
+					}
+				}),
+				catchError(() => of(false))
+			);
 	}
 
 	logout() {
-		this.currentUser = null;
-		localStorage.removeItem("currentUser");
+		this.isAuthenticated = false;
+		localStorage.removeItem("user");
 	}
 
-	getCurrentUser(): User | null {
-		return this.currentUser;
-	}
-
-	setCurrentUser(user: User) {
-		this.currentUser = user;
-		localStorage.setItem("currentUser", JSON.stringify(user));
-	}
-
-	isAuthenticated(): boolean {
-		return !!this.currentUser;
+	isLoggedIn(): boolean {
+		return this.isAuthenticated || !!localStorage.getItem("user");
 	}
 }

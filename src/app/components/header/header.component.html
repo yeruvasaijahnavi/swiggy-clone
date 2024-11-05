@@ -9,4 +9,7 @@
 			>{{ totalItems }}</span
 		>
 	</a>
+	<!-- Show Login or Logout based on user’s authentication status -->
+	<a *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+	<a *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
 </nav>

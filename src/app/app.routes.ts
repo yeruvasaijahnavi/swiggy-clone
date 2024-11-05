@@ -34,4 +34,12 @@ export const routes: Routes = [
 			);
 		},
 	},
+	{
+		path: "login",
+		loadComponent() {
+			return import("./components/login/login.component").then(
+				(m) => m.LoginComponent
+			);
+		},
+	},
 ];
