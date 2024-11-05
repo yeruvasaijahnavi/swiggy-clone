@@ -1,65 +1,47 @@
-<div class="p-5">
+<div
+	class="bg-orange-500 text-white p-5 text-center h-[66vh] flex flex-col justify-center items-center gap-y-16"
+>
+	<h1 class="text-2xl md:text-5xl font-bold mb-2 w-2/3 mx-auto">
+		Order food & groceries. Discover best restaurants. Swiggy it!
+	</h1>
 	<div class="mb-4">
 		<input
 			type="text"
 			[(ngModel)]="searchTerm"
 			placeholder="Search for restaurants..."
-			class="border rounded-lg p-2 w-full"
+			class="border rounded-lg p-2 w-96 mx-auto"
 		/>
 	</div>
-	<h1 class="text-2xl font-bold mb-4">Featured Restaurants</h1>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-		<app-restaurant-card
-			*ngFor="let restaurant of filteredRestaurants"
-			[id]="restaurant.id"
-			[name]="restaurant.name"
-			[cuisine]="restaurant.cuisine"
-			[location]="restaurant.location"
-			[imageUrl]="restaurant.imageUrl"
-			(addToFavorites)="addToFavorites(restaurant)"
-		>
-		</app-restaurant-card>
-	</div>
+</div>
 
-	<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-		<div
-			*ngFor="let restaurant of filteredRestaurants"
-			class="border rounded-lg p-4 shadow-lg"
-		>
-			<img
-				[src]="restaurant.imageUrl"
-				alt="{{ restaurant.name }}"
-				class="rounded-md mb-2"
-			/>
-			<h3 class="text-lg font-semibold">{{ restaurant.name }}</h3>
-			<p class="text-gray-600">{{ restaurant.cuisine }}</p>
-			<p class="text-gray-500">{{ restaurant.location }}</p>
-			<a
-				class="bg-blue-500 text-white p-2 rounded mt-2 inline-block"
-				routerLink="/restaurant/{{ restaurant.id }}"
-				>View Menu</a
-			>
-			<button
-				(click)="addToFavorites(restaurant)"
-				class="mt-2 bg-blue-500 text-white rounded px-4 py-2"
-			>
-				Add to Favorites
-			</button>
-		</div>
-	</div> -->
+<!-- Featured Restaurants Section -->
+<h1 class="text-2xl md:text-3xl font-bold mb-4">
+	Top Restaurant Chains in Chennai
+</h1>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+	<app-restaurant-card
+		*ngFor="let restaurant of filteredRestaurants"
+		[id]="restaurant.id"
+		[name]="restaurant.name"
+		[cuisine]="restaurant.cuisine"
+		[location]="restaurant.location"
+		[imageUrl]="restaurant.imageUrl"
+		(addToFavorites)="addToFavorites(restaurant)"
+	></app-restaurant-card>
+</div>
 
-	<h2 class="text-xl font-semibold mt-8">Popular Cuisines</h2>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-		<div
-			*ngFor="let cuisine of filteredCuisines"
-			class="border rounded-lg p-4 text-center"
-		>
-			<img
-				[src]="cuisine.imageUrl"
-				alt="{{ cuisine.name }}"
-				class="rounded-md mb-2"
-			/>
-			<h3 class="text-lg font-semibold">{{ cuisine.name }}</h3>
-		</div>
+<!-- Popular Cuisines Section -->
+<h2 class="text-xl md:text-2xl font-semibold mt-8">Popular Cuisines</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+	<div
+		*ngFor="let cuisine of filteredCuisines"
+		class="border rounded-lg p-4 text-center"
+	>
+		<img
+			[src]="cuisine.imageUrl"
+			alt="{{ cuisine.name }}"
+			class="rounded-md mb-2"
+		/>
+		<h3 class="text-lg font-semibold">{{ cuisine.name }}</h3>
 	</div>
 </div>
