@@ -1,30 +1,45 @@
 <!-- src/app/components/login/login.component.html -->
-<div class="login-container">
-	<h2>Login</h2>
-	<form (submit)="onLogin()">
-		<div>
-			<label>Email: </label>
-			<input
-				class="border-2"
-				type="text"
-				[(ngModel)]="email"
-				name="email"
-				required
-			/>
-		</div>
-		<div>
-			<label>Password: </label>
-			<input
-				class="border-2"
-				type="password"
-				[(ngModel)]="password"
-				name="password"
-				required
-			/>
-		</div>
-		<button type="submit">Login</button>
-		<p *ngIf="loginError" class="error">
-			Invalid credentials. Please try again.
-		</p>
-	</form>
+<div class="flex items-center justify-center h-[90vh] bg-gray-100">
+	<div class="bg-white p-8 rounded-lg shadow-md w-[66vh] max-w-sm">
+		<h2 class="text-2xl font-bold text-center mb-6">Login</h2>
+		<form (submit)="onLogin()">
+			<div class="mb-4">
+				<label class="block text-sm font-semibold mb-2" for="email"
+					>Email:</label
+				>
+				<input
+					class="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+					type="text"
+					[(ngModel)]="email"
+					name="email"
+					required
+					id="email"
+					placeholder="Enter your email"
+				/>
+			</div>
+			<div class="mb-6">
+				<label class="block text-sm font-semibold mb-2" for="password"
+					>Password:</label
+				>
+				<input
+					class="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+					type="password"
+					[(ngModel)]="password"
+					name="password"
+					required
+					id="password"
+					placeholder="Enter your password"
+				/>
+			</div>
+			<button
+				type="submit"
+				class="w-full bg-orange-600 text-white font-semibold py-2 rounded-lg hover:bg-orange-700 transition duration-200"
+			>
+				Login
+			</button>
+			<p *ngIf="loginError" class="text-red-600 text-sm text-center mt-4">
+				Invalid credentials. Please try again.
+			</p>
+		</form>
+	</div>
 </div>
