@@ -1,15 +1,49 @@
-<nav class="flex gap-x-2">
-	<a routerLink="/">{{ title }}</a>
-	<a routerLink="/favs">Favorites</a>
-	<a routerLink="/cart" class="relative">
-		Cart
-		<span
-			*ngIf="totalItems > 0"
-			class="absolute top-0 right-0 bg-red-500 text-white rounded-full px-1 text-xs"
-			>{{ totalItems }}</span
+<nav class="flex justify-between items-center bg-white shadow-md p-4">
+	<!-- Logo Section -->
+	<div class="flex items-center">
+		<a routerLink="/" class="flex items-center">
+			<img
+				src="assets/images/swiggy-logo.png"
+				alt="Swiggy Logo"
+				class="h-8 mr-2"
+			/>
+			<h1 class="text-2xl font-bold text-gray-800">{{ title }}</h1>
+		</a>
+	</div>
+
+	<!-- Navigation Links -->
+
+	<div class="flex items-center gap-x-6 mr-10">
+		<!-- Show Login or Logout based on user’s authentication status -->
+		<ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
+			<a
+				routerLink="/login"
+				class="text-gray-700 hover:text-orange-500 transition duration-200"
+				>Sign in</a
+			>
+		</ng-container>
+		<ng-template #loggedInTemplate>
+			<a
+				(click)="logout()"
+				class="text-gray-700 hover:text-orange-500 transition duration-200"
+				>Logout</a
+			>
+		</ng-template>
+		<a
+			routerLink="/favs"
+			class="text-gray-700 hover:text-orange-500 transition duration-200"
+			>Favorites</a
 		>
-	</a>
-	<!-- Show Login or Logout based on user’s authentication status -->
-	<a *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
-	<a *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+		<a
+			routerLink="/cart"
+			class="relative text-gray-700 hover:text-orange-500 transition duration-200"
+		>
+			Cart
+			<span
+				class="absolute top-1 -right-8 bg-red-500 text-white rounded-full px-1 text-xs"
+			>
+				{{ totalItems }}
+			</span>
+		</a>
+	</div>
 </nav>
