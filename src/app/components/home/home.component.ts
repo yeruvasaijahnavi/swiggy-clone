@@ -18,25 +18,6 @@ export class HomeComponent implements OnInit {
 	restaurants: Restaurant[] = [];
 	menuItems: MenuItem[] = [];
 	searchTerm: string = "";
-	cuisines: { name: string; imageUrl: string }[] = [
-		{
-			name: "Pizza",
-			imageUrl: "https://via.placeholder.com/100",
-		},
-		{
-			name: "Noodles",
-			imageUrl: "https://via.placeholder.com/100",
-		},
-		{
-			name: "Biryani",
-			imageUrl: "https://via.placeholder.com/100",
-		},
-		{
-			name: "Tacos",
-			imageUrl: "https://via.placeholder.com/100",
-		},
-	];
-
 	constructor(
 		private favoritesService: FavoritesService,
 		private dataService: DataService
