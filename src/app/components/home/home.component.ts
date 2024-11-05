@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { FavoritesService } from "../../services/favorites.service";
 import { RouterLink } from "@angular/router";
 import { DataService } from "../../services/data.service";
+import { RestaurantCardComponent } from "../restaurant-card/restaurant-card.component";
 
 interface Restaurant {
 	id: number;
@@ -19,7 +20,7 @@ interface Restaurant {
 	standalone: true,
 	templateUrl: "./home.component.html",
 	styleUrls: ["./home.component.css"],
-	imports: [CommonModule, FormsModule, RouterLink],
+	imports: [CommonModule, FormsModule, RouterLink, RestaurantCardComponent],
 })
 export class HomeComponent implements OnInit {
 	restaurants: Restaurant[] = [];

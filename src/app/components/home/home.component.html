@@ -9,6 +9,19 @@
 	</div>
 	<h1 class="text-2xl font-bold mb-4">Featured Restaurants</h1>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		<app-restaurant-card
+			*ngFor="let restaurant of filteredRestaurants"
+			[id]="restaurant.id"
+			[name]="restaurant.name"
+			[cuisine]="restaurant.cuisine"
+			[location]="restaurant.location"
+			[imageUrl]="restaurant.imageUrl"
+			(addToFavorites)="addToFavorites(restaurant)"
+		>
+		</app-restaurant-card>
+	</div>
+
+	<!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 		<div
 			*ngFor="let restaurant of filteredRestaurants"
 			class="border rounded-lg p-4 shadow-lg"
@@ -33,7 +46,7 @@
 				Add to Favorites
 			</button>
 		</div>
-	</div>
+	</div> -->
 
 	<h2 class="text-xl font-semibold mt-8">Popular Cuisines</h2>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
