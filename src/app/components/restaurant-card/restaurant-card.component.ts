@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
 
@@ -6,7 +7,7 @@ import { Router, RouterLink } from "@angular/router";
 	standalone: true,
 	templateUrl: "./restaurant-card.component.html",
 	styleUrls: ["./restaurant-card.component.css"],
-	imports: [RouterLink],
+	imports: [RouterLink, CommonModule],
 })
 export class RestaurantCardComponent {
 	@Input() id!: number;
@@ -14,6 +15,8 @@ export class RestaurantCardComponent {
 	@Input() cuisine!: string;
 	@Input() location!: string;
 	@Input() imageUrl!: string;
+	@Input() duration!: string;
+	@Input() rating!: number;
 	@Output() addToFavorites: EventEmitter<void> = new EventEmitter<void>();
 
 	onAddToFavorites() {

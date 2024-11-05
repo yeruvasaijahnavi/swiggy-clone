@@ -13,6 +13,8 @@ interface Restaurant {
 	cuisine: string;
 	location: string;
 	imageUrl: string;
+	duration: string;
+	rating: number;
 }
 
 @Component({

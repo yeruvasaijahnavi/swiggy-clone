@@ -8,6 +8,8 @@ export interface Restaurant {
 	location: string;
 	imageUrl: string;
 	description: string;
+	duration: string;
+	rating: number;
 }
 
 export interface MenuItem {
@@ -36,7 +38,9 @@ export class DataService {
 			cuisine: "Indian",
 			location: "Downtown",
 			imageUrl: "https://via.placeholder.com/150",
-			description: "Delicious Indian dishes with rich flavors.", // Include description
+			description: "Delicious Indian dishes with rich flavors.",
+			duration: "30-45 minutes",
+			rating: 4.5,
 		},
 		{
 			id: 2,
@@ -44,7 +48,9 @@ export class DataService {
 			cuisine: "Italian",
 			location: "City Center",
 			imageUrl: "https://via.placeholder.com/150",
-			description: "Authentic Italian cuisine with a modern twist.", // Include description
+			description: "Authentic Italian cuisine with a modern twist.",
+			duration: "45-60 minutes",
+			rating: 4.0,
 		},
 	];
 

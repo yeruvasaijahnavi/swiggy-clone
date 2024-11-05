@@ -13,35 +13,38 @@
 		/>
 	</div>
 </div>
+<div class="px-20">
+	<!-- Featured Restaurants Section -->
+	<h1 class="text-2xl md:text-3xl font-bold mb-4">
+		Top Restaurant Chains in Chennai
+	</h1>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+		<app-restaurant-card
+			*ngFor="let restaurant of filteredRestaurants"
+			[id]="restaurant.id"
+			[name]="restaurant.name"
+			[cuisine]="restaurant.cuisine"
+			[location]="restaurant.location"
+			[imageUrl]="restaurant.imageUrl"
+			[rating]="restaurant.rating"
+			[duration]="restaurant.duration"
+			(addToFavorites)="addToFavorites(restaurant)"
+		></app-restaurant-card>
+	</div>
 
-<!-- Featured Restaurants Section -->
-<h1 class="text-2xl md:text-3xl font-bold mb-4">
-	Top Restaurant Chains in Chennai
-</h1>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-	<app-restaurant-card
-		*ngFor="let restaurant of filteredRestaurants"
-		[id]="restaurant.id"
-		[name]="restaurant.name"
-		[cuisine]="restaurant.cuisine"
-		[location]="restaurant.location"
-		[imageUrl]="restaurant.imageUrl"
-		(addToFavorites)="addToFavorites(restaurant)"
-	></app-restaurant-card>
-</div>
-
-<!-- Popular Cuisines Section -->
-<h2 class="text-xl md:text-2xl font-semibold mt-8">Popular Cuisines</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-	<div
-		*ngFor="let cuisine of filteredCuisines"
-		class="border rounded-lg p-4 text-center"
-	>
-		<img
-			[src]="cuisine.imageUrl"
-			alt="{{ cuisine.name }}"
-			class="rounded-md mb-2"
-		/>
-		<h3 class="text-lg font-semibold">{{ cuisine.name }}</h3>
+	<!-- Popular Cuisines Section -->
+	<h2 class="text-xl md:text-2xl font-semibold mt-8">Popular Cuisines</h2>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+		<div
+			*ngFor="let cuisine of filteredCuisines"
+			class="border rounded-lg p-4 text-center"
+		>
+			<img
+				[src]="cuisine.imageUrl"
+				alt="{{ cuisine.name }}"
+				class="rounded-md mb-2"
+			/>
+			<h3 class="text-lg font-semibold">{{ cuisine.name }}</h3>
+		</div>
 	</div>
 </div>
