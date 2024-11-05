@@ -18,6 +18,7 @@ export interface MenuItem {
 	name: string;
 	price: number;
 	description: string;
+	imageUrl: string; // Add imageUrl property here
 }
 
 export interface Review {
@@ -91,6 +92,7 @@ export class DataService {
 			name: "Butter Chicken",
 			price: 12.99,
 			description: "Creamy butter chicken served with naan.",
+			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
 		},
 		{
 			id: 2,
@@ -98,6 +100,7 @@ export class DataService {
 			name: "Paneer Tikka",
 			price: 10.99,
 			description: "Grilled paneer with spices and herbs.",
+			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
 		},
 		{
 			id: 3,
@@ -105,8 +108,9 @@ export class DataService {
 			name: "Spaghetti Carbonara",
 			price: 14.99,
 			description: "Classic Italian pasta with creamy sauce.",
+			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
 		},
-		// Add more menu items as needed
+		// Add more menu items as needed with image URLs
 	];
 
 	private reviews: Review[] = [
