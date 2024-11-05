@@ -1,22 +1,29 @@
-<h2 class="text-xl font-semibold">Your Cart</h2>
-<div *ngIf="cartItems.length > 0; else emptyCart">
+<h2 class="text-xl font-semibold mb-4">Your Cart</h2>
+<div
+	*ngIf="cartItems.length > 0; else emptyCart"
+	class="bg-white rounded-lg shadow-md p-4"
+>
 	<div
 		*ngFor="let item of cartItems"
-		class="flex justify-between items-center border-b py-2"
+		class="flex justify-between items-center border-b py-2 last:border-b-0"
 	>
 		<div>
-			<h3 class="text-lg">{{ item.name }}</h3>
-			<p>Price: {{ item.price | currency }} x {{ item.quantity }}</p>
+			<h3 class="text-lg font-bold text-gray-800">{{ item.name }}</h3>
+			<p class="text-gray-600">
+				Price: {{ item.price | currency }} x {{ item.quantity }}
+			</p>
 		</div>
 		<button
 			(click)="removeFromCart(item)"
-			class="bg-red-500 text-white rounded px-2 py-1"
+			class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-200"
 		>
 			Remove
 		</button>
 	</div>
-	<h3 class="mt-4">Total Cost: {{ totalCost | currency }}</h3>
+	<h3 class="mt-4 text-lg font-semibold">
+		Total Cost: {{ totalCost | currency }}
+	</h3>
 </div>
 <ng-template #emptyCart>
-	<p>Your cart is empty.</p>
+	<p class="text-gray-500">Your cart is empty.</p>
 </ng-template>

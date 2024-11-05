@@ -6,17 +6,7 @@ import { FavoritesService } from "../../services/favorites.service";
 import { RouterLink } from "@angular/router";
 import { DataService } from "../../services/data.service";
 import { RestaurantCardComponent } from "../restaurant-card/restaurant-card.component";
-
-interface Restaurant {
-	id: number;
-	name: string;
-	cuisine: string;
-	location: string;
-	imageUrl: string;
-	duration: string;
-	rating: number;
-}
-
+import { Restaurant, MenuItem } from "../../services/data.service";
 @Component({
 	selector: "app-home",
 	standalone: true,
@@ -26,6 +16,7 @@ interface Restaurant {
 })
 export class HomeComponent implements OnInit {
 	restaurants: Restaurant[] = [];
+	menuItems: MenuItem[] = [];
 	searchTerm: string = "";
 	cuisines: { name: string; imageUrl: string }[] = [
 		{
@@ -52,8 +43,8 @@ export class HomeComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		// Fetch restaurants only once
 		this.restaurants = this.dataService.getRestaurants();
+		this.menuItems = this.dataService.getMenuItems(); // Corrected this line
 	}
 
 	get filteredRestaurants() {
@@ -68,9 +59,13 @@ export class HomeComponent implements OnInit {
 	}
 
 	get filteredCuisines() {
-		return this.cuisines.filter((cuisine) =>
-			cuisine.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-		);
+		return this.searchTerm
+			? this.menuItems.filter((menuItem) =>
+					menuItem.name
+						.toLowerCase()
+						.includes(this.searchTerm.toLowerCase())
+			  )
+			: this.menuItems;
 	}
 
 	addToFavorites(restaurant: Restaurant) {

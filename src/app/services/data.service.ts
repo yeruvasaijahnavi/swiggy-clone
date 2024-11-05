@@ -92,7 +92,7 @@ export class DataService {
 			name: "Butter Chicken",
 			price: 12.99,
 			description: "Creamy butter chicken served with naan.",
-			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
+			imageUrl: "https://via.placeholder.com/100",
 		},
 		{
 			id: 2,
@@ -100,17 +100,162 @@ export class DataService {
 			name: "Paneer Tikka",
 			price: 10.99,
 			description: "Grilled paneer with spices and herbs.",
-			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
+			imageUrl: "https://via.placeholder.com/100",
 		},
 		{
 			id: 3,
+			restaurantId: 1,
+			name: "Chole Bhature",
+			price: 9.99,
+			description: "Spicy chickpeas served with fried bread.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 4,
+			restaurantId: 1,
+			name: "Biryani",
+			price: 14.99,
+			description:
+				"Fragrant rice cooked with spices and your choice of chicken or vegetables.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 5,
 			restaurantId: 2,
 			name: "Spaghetti Carbonara",
 			price: 14.99,
 			description: "Classic Italian pasta with creamy sauce.",
-			imageUrl: "https://via.placeholder.com/100", // Add image URL for the menu item
+			imageUrl: "https://via.placeholder.com/100",
 		},
-		// Add more menu items as needed with image URLs
+		{
+			id: 6,
+			restaurantId: 2,
+			name: "Margherita Pizza",
+			price: 11.99,
+			description:
+				"Traditional pizza topped with fresh tomatoes, mozzarella, and basil.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 7,
+			restaurantId: 2,
+			name: "Pesto Pasta",
+			price: 13.49,
+			description: "Pasta tossed in a fresh basil pesto sauce.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 8,
+			restaurantId: 2,
+			name: "Tiramisu",
+			price: 6.99,
+			description:
+				"Classic Italian dessert made with coffee-soaked ladyfingers and mascarpone cheese.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 9,
+			restaurantId: 3,
+			name: "California Roll",
+			price: 8.99,
+			description: "Sushi roll with crab, avocado, and cucumber.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 10,
+			restaurantId: 3,
+			name: "Tempura Udon",
+			price: 11.49,
+			description:
+				"Thick wheat noodles served in a flavorful broth with tempura vegetables.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 11,
+			restaurantId: 3,
+			name: "Sashimi Platter",
+			price: 19.99,
+			description:
+				"Assorted fresh sashimi served with wasabi and soy sauce.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 12,
+			restaurantId: 3,
+			name: "Miso Soup",
+			price: 3.99,
+			description: "Traditional Japanese soup made with miso paste.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 13,
+			restaurantId: 4,
+			name: "Tacos al Pastor",
+			price: 9.99,
+			description: "Tacos filled with marinated pork and pineapple.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 14,
+			restaurantId: 4,
+			name: "Chiles en Nogada",
+			price: 12.99,
+			description:
+				"Poblano peppers stuffed with meat and topped with walnut sauce.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 15,
+			restaurantId: 4,
+			name: "Quesadilla",
+			price: 7.99,
+			description:
+				"Flour tortilla filled with cheese and grilled to perfection.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 16,
+			restaurantId: 4,
+			name: "Guacamole with Chips",
+			price: 6.49,
+			description: "Fresh avocado dip served with crispy tortilla chips.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 17,
+			restaurantId: 5,
+			name: "Cheeseburger",
+			price: 10.99,
+			description:
+				"Juicy burger topped with cheese, lettuce, and tomato.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 18,
+			restaurantId: 5,
+			name: "Club Sandwich",
+			price: 9.49,
+			description:
+				"Triple-decker sandwich with turkey, bacon, and avocado.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 19,
+			restaurantId: 5,
+			name: "Caesar Salad",
+			price: 8.99,
+			description:
+				"Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
+		{
+			id: 20,
+			restaurantId: 5,
+			name: "Milkshake",
+			price: 4.99,
+			description: "Thick and creamy milkshake in your choice of flavor.",
+			imageUrl: "https://via.placeholder.com/100",
+		},
 	];
 
 	private reviews: Review[] = [
