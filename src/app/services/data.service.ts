@@ -52,6 +52,36 @@ export class DataService {
 			duration: "45-60 mins",
 			rating: 4.0,
 		},
+		{
+			id: 3,
+			name: "Sushi Palace",
+			cuisine: "Japanese",
+			location: "Uptown",
+			imageUrl: "https://via.placeholder.com/150",
+			description: "Fresh sushi and sashimi prepared by expert chefs.",
+			duration: "20-30 mins",
+			rating: 4.8,
+		},
+		{
+			id: 4,
+			name: "Taco Fiesta",
+			cuisine: "Mexican",
+			location: "Midtown",
+			imageUrl: "https://via.placeholder.com/150",
+			description: "Vibrant tacos and burritos with bold flavors.",
+			duration: "15-25 mins",
+			rating: 4.2,
+		},
+		{
+			id: 5,
+			name: "Classic American Diner",
+			cuisine: "American",
+			location: "Suburbs",
+			imageUrl: "https://via.placeholder.com/150",
+			description: "Traditional American dishes with a cozy atmosphere.",
+			duration: "30-50 mins",
+			rating: 4.3,
+		},
 	];
 
 	private menuItems: MenuItem[] = [
