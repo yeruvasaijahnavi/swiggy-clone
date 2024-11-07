@@ -14,7 +14,8 @@
 			<div>
 				<h3 class="text-lg font-bold text-gray-800">{{ item.name }}</h3>
 				<p class="text-gray-600">
-					Price: {{ item.price | currency }} x {{ item.quantity }}
+					Price: {{ item.price | currency : "INR" : "symbol" }} x
+					{{ item.quantity }}
 				</p>
 			</div>
 			<button
@@ -29,7 +30,9 @@
 		<div class="border-t pt-4">
 			<div class="flex justify-between mb-2">
 				<span class="text-gray-800 font-semibold">Item Total</span>
-				<span class="font-semibold">{{ totalCost | currency }}</span>
+				<span class="font-semibold">{{
+					totalCost | currency : "INR" : "symbol"
+				}}</span>
 			</div>
 
 			<div class="flex justify-between mb-2">
@@ -38,7 +41,7 @@
 			</div>
 			<div class="flex justify-between font-semibold text-lg">
 				<span>TO PAY</span>
-				<span>{{ totalCost + 10 | currency }}</span>
+				<span>{{ totalCost + 10 | currency : "INR" : "symbol" }}</span>
 			</div>
 
 			<!-- Order Button -->

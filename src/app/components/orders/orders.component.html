@@ -50,7 +50,7 @@
 				</span>
 			</p>
 			<p class="text-gray-800 font-medium">
-				Total Paid: {{ order.totalCost | currency }}
+				Total Paid: {{ order.totalCost | currency : "INR" : "symbol" }}
 			</p>
 		</div>
 

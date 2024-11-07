@@ -14,7 +14,7 @@
 					<div class="flex-grow">
 						<h2 class="text-xl font-bold">{{ menuItem.name }}</h2>
 						<p class="text-gray-600">
-							{{ menuItem.price | currency }}
+							{{ menuItem.price | currency : "INR" : "symbol" }}
 						</p>
 
 						<p class="mt-2 text-gray-700">
@@ -25,39 +25,41 @@
 						<img
 							[src]="menuItem.imageUrl"
 							[alt]="menuItem.name"
-							class="rounded-lg w-24 h-24 object-cover"
+							class="rounded-lg w-24 h-24 object-fit"
 						/>
 					</div>
 				</div>
 
-				<!-- Quantity Controls -->
-				<div class="flex items-center justify-between mt-4">
+				<div class="flex justify-between">
+					<!-- Quantity Controls -->
+					<div class="flex items-center justify-between mt-4">
+						<button
+							(click)="decreaseQuantity(menuItem)"
+							class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+						>
+							-
+						</button>
+						<input
+							type="number"
+							[(ngModel)]="menuItem.quantity"
+							class="w-12 text-center"
+						/>
+						<button
+							(click)="increaseQuantity(menuItem)"
+							class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+						>
+							+
+						</button>
+					</div>
+
+					<!-- Add to Cart Button -->
 					<button
-						(click)="decreaseQuantity(menuItem)"
-						class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+						(click)="addToCart(menuItem)"
+						class="mt-4 w-28 bg-green-500 text-white py-2 rounded-lg"
 					>
-						-
-					</button>
-					<input
-						type="number"
-						[(ngModel)]="menuItem.quantity"
-						class="w-12 text-center"
-					/>
-					<button
-						(click)="increaseQuantity(menuItem)"
-						class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
-					>
-						+
+						ADD
 					</button>
 				</div>
-
-				<!-- Add to Cart Button -->
-				<button
-					(click)="addToCart(menuItem)"
-					class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg"
-				>
-					ADD
-				</button>
 				<p class="text-center text-gray-500 mt-2">Customisable</p>
 			</div>
 		</div>
