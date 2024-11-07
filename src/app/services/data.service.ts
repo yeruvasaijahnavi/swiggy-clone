@@ -18,7 +18,8 @@ export interface MenuItem {
 	name: string;
 	price: number;
 	description: string;
-	imageUrl: string; // Add imageUrl property here
+	imageUrl: string;
+	quantity?: number;
 }
 
 export interface Review {

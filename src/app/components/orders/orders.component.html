@@ -6,7 +6,8 @@
 		<p>Date: {{ order.date | date : "short" }}</p>
 		<ul>
 			<li *ngFor="let item of order.items">
-				{{ item.name }} - {{ item.price | currency }}
+				{{ item.name }} - {{ item.price | currency }} x
+				{{ item.quantity }}
 			</li>
 		</ul>
 	</div>

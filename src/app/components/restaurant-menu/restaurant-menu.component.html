@@ -28,6 +28,30 @@
 						/>
 					</div>
 				</div>
+
+				<!-- Quantity Controls -->
+				<div class="flex items-center justify-between mt-4">
+					<button
+						(click)="decreaseQuantity(menuItem)"
+						class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+					>
+						-
+					</button>
+					<input
+						type="number"
+						[min]="1"
+						[(ngModel)]="menuItem.quantity"
+						class="w-12 text-center"
+					/>
+					<button
+						(click)="increaseQuantity(menuItem)"
+						class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+					>
+						+
+					</button>
+				</div>
+
+				<!-- Add to Cart Button -->
 				<button
 					(click)="addToCart(menuItem)"
 					class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg"

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+
 interface CartItem {
 	id: number;
 	name: string;
@@ -20,8 +21,10 @@ export class CartService {
 			(cartItem) => cartItem.id === item.id
 		);
 		if (existingItem) {
+			// If item already exists, add to quantity
 			existingItem.quantity += item.quantity;
 		} else {
+			// Otherwise, add the item to the cart
 			this.cart.push(item);
 		}
 		this.updateCartCount();
@@ -44,7 +47,10 @@ export class CartService {
 	}
 
 	updateCartCount() {
-		const itemCount = this.cart.length;
+		const itemCount = this.cart.reduce(
+			(count, item) => count + item.quantity,
+			0
+		);
 		this.itemCountSubject.next(itemCount);
 	}
 }

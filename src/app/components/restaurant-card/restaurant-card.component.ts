@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
 	selector: "app-restaurant-card",
@@ -19,7 +20,12 @@ export class RestaurantCardComponent {
 	@Input() rating!: number;
 	@Output() addToFavorites: EventEmitter<void> = new EventEmitter<void>();
 
+	constructor(private router: Router, private authService: AuthService) {}
 	onAddToFavorites() {
-		this.addToFavorites.emit();
+		if (this.authService.isLoggedIn()) {
+			this.addToFavorites.emit();
+		} else {
+			this.router.navigate(["/login"]);
+		}
 	}
 }

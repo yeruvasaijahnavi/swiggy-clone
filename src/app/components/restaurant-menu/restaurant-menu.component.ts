@@ -5,21 +5,22 @@ import {
 	MenuItem,
 	Review,
 	Restaurant,
-} from "../../services/data.service"; // Import Restaurant here
+} from "../../services/data.service";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 
 @Component({
 	selector: "app-restaurant-menu",
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, FormsModule],
 	templateUrl: "./restaurant-menu.component.html",
 	styleUrls: ["./restaurant-menu.component.css"],
 })
 export class RestaurantMenuComponent implements OnInit {
 	menuItems: MenuItem[] = [];
 	reviews: Review[] = [];
-	restaurant: Restaurant | null = null; // Define the restaurant property
+	restaurant: Restaurant | null = null;
 	restaurantId!: number;
 
 	constructor(
@@ -44,11 +45,27 @@ export class RestaurantMenuComponent implements OnInit {
 		const foundRestaurant = this.dataService
 			.getRestaurants()
 			.find((restaurant) => restaurant.id === this.restaurantId);
-		this.restaurant = foundRestaurant ? foundRestaurant : null; // Setting to null if not found
+		this.restaurant = foundRestaurant ? foundRestaurant : null;
 	}
 
+	increaseQuantity(menuItem: MenuItem): void {
+		menuItem.quantity = (menuItem.quantity || 1) + 1;
+	}
+
+	// Decrease quantity method
+	decreaseQuantity(menuItem: MenuItem): void {
+		// Ensure quantity is at least 1
+		if ((menuItem.quantity || 1) > 1) {
+			menuItem.quantity = (menuItem.quantity || 1) - 1;
+		}
+	}
+
+	// Add item to cart
 	addToCart(menuItem: MenuItem): void {
-		this.cartService.addToCart({ ...menuItem, quantity: 1 });
+		this.cartService.addToCart({
+			...menuItem,
+			quantity: menuItem.quantity || 1,
+		});
 		this.cartService.updateCartCount();
 	}
 }
