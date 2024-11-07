@@ -1,26 +1,37 @@
-<h2 class="text-xl font-semibold mt-8">Your Favorite Foods</h2>
-<div *ngIf="favorites.length === 0" class="text-center">
-	<p>No favorite items yet!</p>
-</div>
-<div
-	class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
-	*ngIf="favorites.length > 0"
->
+<div class="mx-24 min-h-[66vh]">
+	<h2 class="text-3xl font-bold my-8">Your Favorite Restaurants</h2>
 	<div
-		*ngFor="let favorite of favorites"
-		class="border rounded-lg p-4 text-center"
+		*ngIf="favorites.length === 0"
+		class="text-center flex flex-col items-center"
 	>
-		<img
-			[src]="favorite.imageUrl"
-			alt="{{ favorite.name }}"
-			class="rounded-md mb-2"
-		/>
-		<h3 class="text-lg font-semibold">{{ favorite.name }}</h3>
-		<button
-			(click)="removeFromFavorites(favorite)"
-			class="mt-2 bg-red-500 text-white rounded px-4 py-2"
+		<img src="assets/images/empty.png" alt="Cooking" class="mx-auto" />
+		<p class="text-gray-500 font-semibold text-xl">
+			No favorite restaurants yet!
+		</p>
+		<p class="">You can go to the home page to add favorites!</p>
+	</div>
+	<div
+		class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+		*ngIf="favorites.length > 0"
+	>
+		<div
+			*ngFor="let favorite of favorites"
+			class="rounded-lg p-4 text-center"
 		>
-			Remove from Favorites
-		</button>
+			<img
+				[src]="favorite.imageUrl"
+				alt="{{ favorite.name }}"
+				class="rounded-md mb-2"
+			/>
+			<div class="mx-3 flex justify-between items-center">
+				<h3 class="text-lg font-semibold">{{ favorite.name }}</h3>
+				<button
+					(click)="removeFromFavorites(favorite)"
+					class="mt-2 text-orange-500 hover:text-orange-100"
+				>
+					<i class="fas fa-heart"></i>
+				</button>
+			</div>
+		</div>
 	</div>
 </div>
