@@ -53,4 +53,8 @@ export class CartService {
 		);
 		this.itemCountSubject.next(itemCount);
 	}
+
+	resetCart() {
+		this.cart = [];
+	}
 }

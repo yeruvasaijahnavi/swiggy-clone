@@ -61,7 +61,7 @@ export class CartComponent {
 		this.orderService.placeOrder(orderData).subscribe({
 			next: (response) => {
 				console.log("Order placed successfully:", response);
-				this.cartItems = []; // Clear the cart after order
+				this.cartService.resetCart(); // Reset the cart
 				this.router.navigate(["/orders"]); // Navigate to orders page
 			},
 			error: (error) => {
