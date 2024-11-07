@@ -25,9 +25,11 @@
 	</div>
 </div>
 
-<div class="px-20">
+<div class="px-20 mx-32">
 	<!-- Popular Food Section -->
-	<h2 class="text-2xl md:text-3xl font-bold mb-6">What's on your mind?</h2>
+	<h2 class="mt-10 text-2xl md:text-3xl font-bold mb-6">
+		What's on your mind?
+	</h2>
 	<div class="flex items-center justify-between">
 		<div class="flex overflow-x-auto gap-x-28 pb-4">
 			<div
@@ -56,7 +58,7 @@
 	<h1 class="text-2xl md:text-3xl font-bold mt-8 mb-4">
 		Top Restaurant Chains in Chennai
 	</h1>
-	<div class="flex overflow-x-auto space-x-4 pb-4">
+	<div class="flex overflow-x-auto space-x-4 gap-x-4 pb-4">
 		<app-restaurant-card
 			*ngFor="let restaurant of filteredRestaurants"
 			[id]="restaurant.id"
