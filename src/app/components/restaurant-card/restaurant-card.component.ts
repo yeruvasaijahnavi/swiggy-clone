@@ -39,6 +39,7 @@ export class RestaurantCardComponent {
 		if (this.authService.isLoggedIn()) {
 			this.addToFavorites.emit();
 		} else {
+			alert("You need to login first before you can add to favorites.");
 			this.router.navigate(["/login"]);
 		}
 	}

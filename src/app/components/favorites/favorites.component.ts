@@ -25,6 +25,7 @@ export class FavoritesComponent {
 		if (this.isLoggedIn) {
 			this.favorites = this.favoritesService.getFavorites();
 		} else {
+			alert("You need to login first before you can view favorites.");
 			this.router.navigate(["/login"]);
 		}
 	}

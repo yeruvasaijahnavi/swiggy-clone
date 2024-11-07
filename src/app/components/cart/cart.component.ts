@@ -3,6 +3,7 @@ import { CartService } from "../../services/cart.service";
 import { CommonModule } from "@angular/common";
 import { OrderService } from "../../services/order.service";
 import { Router } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 @Component({
 	selector: "app-cart",
 	standalone: true,
@@ -17,7 +18,8 @@ export class CartComponent {
 	constructor(
 		private cartService: CartService,
 		private orderService: OrderService,
-		private router: Router
+		private router: Router,
+		private authService: AuthService
 	) {}
 
 	ngOnInit(): void {
@@ -39,6 +41,12 @@ export class CartComponent {
 	}
 
 	onOrder() {
+		if (!this.authService.isLoggedIn()) {
+			alert("You need to login first before you can place an order.");
+			this.router.navigate(["/login"]);
+			return; // Stop further execution of the order process
+		}
+
 		if (this.cartItems.length === 0) {
 			alert("Your cart is empty!");
 			return;

@@ -2,6 +2,8 @@
 import { Component, OnInit } from "@angular/core";
 import { OrderService } from "../../services/order.service";
 import { CommonModule } from "@angular/common";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-orders",
@@ -13,9 +15,17 @@ import { CommonModule } from "@angular/common";
 export class OrdersComponent implements OnInit {
 	orders: any[] = [];
 
-	constructor(private orderService: OrderService) {}
+	constructor(
+		private orderService: OrderService,
+		private authService: AuthService,
+		private router: Router
+	) {}
 
 	ngOnInit() {
+		if (!this.authService.isLoggedIn()) {
+			alert("You need to login first before you can view orders.");
+			this.router.navigate(["/login"]);
+		}
 		this.orderService.getOrders().subscribe({
 			next: (data) => {
 				this.orders = data;
