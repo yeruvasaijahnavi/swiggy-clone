@@ -14,21 +14,6 @@
 	<!-- Navigation Links -->
 
 	<div class="flex items-center gap-x-6 mr-10">
-		<!-- Show Login or Logout based on user’s authentication status -->
-		<ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
-			<a
-				routerLink="/login"
-				class="text-gray-700 hover:text-orange-500 transition duration-200"
-				>Sign in</a
-			>
-		</ng-container>
-		<ng-template #loggedInTemplate>
-			<a
-				(click)="logout()"
-				class="text-gray-700 hover:text-orange-500 transition duration-200"
-				>Logout</a
-			>
-		</ng-template>
 		<a
 			routerLink="/favs"
 			class="text-gray-700 hover:text-orange-500 transition duration-200"
@@ -50,5 +35,20 @@
 			class="text-gray-700 hover:text-orange-500 transition duration-200"
 			>Orders</a
 		>
+		<!-- Show Login or Logout based on user’s authentication status -->
+		<ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
+			<a
+				routerLink="/login"
+				class="text-gray-700 hover:text-orange-500 bg-orange-400 py-2 px-4 rounded text-white transition duration-200"
+				>Sign in</a
+			>
+		</ng-container>
+		<ng-template #loggedInTemplate>
+			<a
+				(click)="logout()"
+				class="text-gray-700 hover:text-orange-500 transition duration-200"
+				>Logout</a
+			>
+		</ng-template>
 	</div>
 </nav>

@@ -1,31 +1,60 @@
-<h2 class="text-xl font-semibold mb-4">Your Cart</h2>
-<div
-	*ngIf="cartItems.length > 0; else emptyCart"
-	class="bg-white rounded-lg shadow-md p-4"
->
-	<div
-		*ngFor="let item of cartItems"
-		class="flex justify-between items-center border-b py-2 last:border-b-0"
-	>
-		<div>
-			<h3 class="text-lg font-bold text-gray-800">{{ item.name }}</h3>
-			<p class="text-gray-600">
-				Price: {{ item.price | currency }} x {{ item.quantity }}
-			</p>
-		</div>
-		<button
-			(click)="removeFromCart(item)"
-			class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-200"
-		>
-			Remove
-		</button>
-	</div>
-	<h3 class="mt-4 text-lg font-semibold">
-		Total Cost: {{ totalCost | currency }}
-	</h3>
+<div class="max-w-md mx-auto bg-white shadow-md rounded-md p-4">
+	<!-- Header Section -->
+	<h2 class="text-xl font-semibold mb-4">Your Cart</h2>
 
-	<button (click)="onOrder()" class="order-button">Order</button>
+	<!-- Cart Items -->
+	<div
+		*ngIf="cartItems.length > 0; else emptyCart"
+		class="bg-white rounded-lg shadow-md p-4"
+	>
+		<div
+			*ngFor="let item of cartItems"
+			class="flex justify-between items-center border-b py-2 last:border-b-0"
+		>
+			<div>
+				<h3 class="text-lg font-bold text-gray-800">{{ item.name }}</h3>
+				<p class="text-gray-600">
+					Price: {{ item.price | currency }} x {{ item.quantity }}
+				</p>
+			</div>
+			<button
+				(click)="removeFromCart(item)"
+				class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-200"
+			>
+				Remove
+			</button>
+		</div>
+
+		<!-- Order Details -->
+		<div class="border-t pt-4">
+			<div class="flex justify-between mb-2">
+				<span class="text-gray-800 font-semibold">Item Total</span>
+				<span class="font-semibold">{{ totalCost | currency }}</span>
+			</div>
+
+			<div class="flex justify-between mb-2">
+				<span class="text-gray-800">Platform Fee</span>
+				<span>₹10</span>
+			</div>
+			<div class="flex justify-between font-semibold text-lg">
+				<span>TO PAY</span>
+				<span>{{ totalCost + 10 | currency }}</span>
+			</div>
+
+			<!-- Order Button -->
+			<div class="mt-4">
+				<button
+					(click)="onOrder()"
+					class="w-full py-2 bg-orange-500 text-white rounded hover:bg-blue-600"
+				>
+					Place Order
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Empty Cart -->
+	<ng-template #emptyCart>
+		<p class="text-gray-500">Your cart is empty.</p>
+	</ng-template>
 </div>
-<ng-template #emptyCart>
-	<p class="text-gray-500">Your cart is empty.</p>
-</ng-template>
