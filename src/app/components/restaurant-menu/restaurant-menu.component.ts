@@ -1,11 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CartService } from "../../services/cart.service";
-import {
-	DataService,
-	MenuItem,
-	Review,
-	Restaurant,
-} from "../../services/data.service";
+import { DataService, MenuItem, Restaurant } from "../../services/data.service";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { FormsModule } from "@angular/forms";
@@ -19,7 +14,6 @@ import { FormsModule } from "@angular/forms";
 })
 export class RestaurantMenuComponent implements OnInit {
 	menuItems: MenuItem[] = [];
-	reviews: Review[] = [];
 	restaurant: Restaurant | null = null;
 	restaurantId!: number;
 
@@ -30,18 +24,16 @@ export class RestaurantMenuComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		// Set the restaurantId from route parameters first
 		this.restaurantId = Number(this.route.snapshot.paramMap.get("id"));
 
-		// Fetching the menu items and reviews
+		// Fetch menu items and set quantity to 1 if undefined
 		this.menuItems = this.dataService
 			.getMenuItems()
-			.filter((item) => item.restaurantId === this.restaurantId);
+			.filter((item) => item.restaurantId === this.restaurantId)
+			.map((item) => ({ ...item, quantity: item.quantity ?? 1 }));
 
-		this.reviews = this.dataService
-			.getReviews()
-			.filter((review) => review.restaurantId === this.restaurantId);
-
-		// Fetching the restaurant details safely
+		// Fetch restaurant details
 		const foundRestaurant = this.dataService
 			.getRestaurants()
 			.find((restaurant) => restaurant.id === this.restaurantId);
@@ -52,15 +44,12 @@ export class RestaurantMenuComponent implements OnInit {
 		menuItem.quantity = (menuItem.quantity || 1) + 1;
 	}
 
-	// Decrease quantity method
 	decreaseQuantity(menuItem: MenuItem): void {
-		// Ensure quantity is at least 1
 		if ((menuItem.quantity || 1) > 1) {
 			menuItem.quantity = (menuItem.quantity || 1) - 1;
 		}
 	}
 
-	// Add item to cart
 	addToCart(menuItem: MenuItem): void {
 		this.cartService.addToCart({
 			...menuItem,
