@@ -21,6 +21,20 @@ export class RestaurantCardComponent {
 	@Output() addToFavorites: EventEmitter<void> = new EventEmitter<void>();
 
 	constructor(private router: Router, private authService: AuthService) {}
+
+	onLinkClick(event: MouseEvent): void {
+		const isFavoriteButtonClicked = (event.target as HTMLElement).closest(
+			"button"
+		);
+
+		if (!isFavoriteButtonClicked) {
+			// Prevent navigation when clicking on the favorite button
+			this.router.navigate([`/restaurant/${this.id}`]);
+		}
+
+		event.preventDefault(); // Prevent the default anchor link behavior
+	}
+
 	onAddToFavorites() {
 		if (this.authService.isLoggedIn()) {
 			this.addToFavorites.emit();
