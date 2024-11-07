@@ -13,6 +13,21 @@ export class AuthService {
 
 	constructor(private http: HttpClient) {}
 
+	signup(name: string, email: string, password: string): Observable<boolean> {
+		const newUser = { name, email, password };
+		return this.http.post<any>(this.apiUrl, newUser).pipe(
+			map((response) => {
+				// If signup is successful, return true
+				if (response) {
+					return true;
+				} else {
+					return false;
+				}
+			}),
+			catchError(() => of(false))
+		);
+	}
+
 	login(username: string, password: string): Observable<boolean> {
 		return this.http
 			.get<any[]>(`${this.apiUrl}?email=${username}&password=${password}`)

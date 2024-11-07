@@ -1,6 +1,6 @@
 // src/app/components/login/login.component.ts
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
@@ -10,7 +10,7 @@ import { CommonModule } from "@angular/common";
 	templateUrl: "./login.component.html",
 	styleUrls: ["./login.component.css"],
 	standalone: true,
-	imports: [FormsModule, CommonModule],
+	imports: [FormsModule, CommonModule, RouterLink],
 })
 export class LoginComponent {
 	email = "";

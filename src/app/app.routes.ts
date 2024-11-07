@@ -42,4 +42,12 @@ export const routes: Routes = [
 			);
 		},
 	},
+	{
+		path: "signup",
+		loadComponent() {
+			return import("./components/signup/signup.component").then(
+				(m) => m.SignupComponent
+			);
+		},
+	},
 ];
