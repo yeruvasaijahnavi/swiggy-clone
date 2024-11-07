@@ -12,9 +12,15 @@ export class OrderService {
 
 	constructor(private http: HttpClient) {}
 
-	placeOrder(orderItems: any[]): Observable<any> {
-		const orderData = { items: orderItems, date: new Date().toISOString() };
-		return this.http.post(this.orderApiUrl, orderData);
+	placeOrder(orderData: {
+		items: any[];
+		totalCost: number;
+	}): Observable<any> {
+		// Add the date property to the passed orderData
+		const orderWithDate = { ...orderData, date: new Date().toISOString() };
+
+		// Make the HTTP POST request with the modified order data
+		return this.http.post(this.orderApiUrl, orderWithDate);
 	}
 
 	getOrders(): Observable<any[]> {

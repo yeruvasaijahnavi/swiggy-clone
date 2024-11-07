@@ -52,7 +52,13 @@ export class CartComponent {
 			return;
 		}
 
-		this.orderService.placeOrder(this.cartItems).subscribe({
+		// Pass the total cost along with the cart items when placing an order
+		const orderData = {
+			items: this.cartItems,
+			totalCost: this.totalCost, // Pass the total cost to the order
+		};
+
+		this.orderService.placeOrder(orderData).subscribe({
 			next: (response) => {
 				console.log("Order placed successfully:", response);
 				this.cartItems = []; // Clear the cart after order
