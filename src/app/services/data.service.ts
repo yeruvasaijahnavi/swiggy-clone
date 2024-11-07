@@ -114,7 +114,7 @@ export class DataService {
 			price: 399,
 			description:
 				"Spicy stir-fried chicken with peanuts and vegetables.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/kung-pao-chicken.png",
 		},
 		{
 			id: 2,
@@ -123,7 +123,7 @@ export class DataService {
 			price: 199,
 			description:
 				"Crispy rolls filled with fresh vegetables and shrimp.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/spring-rolls.png",
 		},
 		{
 			id: 3,
@@ -132,7 +132,7 @@ export class DataService {
 			price: 299,
 			description:
 				"Soft, steamed dumplings filled with vegetables or chicken.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/steamed-momos.png",
 		},
 		{
 			id: 4,
@@ -141,7 +141,7 @@ export class DataService {
 			price: 349,
 			description:
 				"Crispy momos fried to perfection, served with spicy sauce.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/pan-fried-momos.png",
 		},
 		{
 			id: 5,
@@ -149,7 +149,7 @@ export class DataService {
 			name: "Classic Burger",
 			price: 249,
 			description: "Beef burger with lettuce, tomato, and cheese.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/classic-burger.png",
 		},
 		{
 			id: 6,
@@ -157,7 +157,7 @@ export class DataService {
 			name: "Spicy Chicken Burger",
 			price: 279,
 			description: "Crispy chicken burger with spicy sauce and pickles.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/spicy-chicken-burger.png",
 		},
 		{
 			id: 7,
@@ -166,7 +166,7 @@ export class DataService {
 			price: 199,
 			description:
 				"Iconic burger with two beef patties and special sauce.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/big-mac.png",
 		},
 		{
 			id: 8,
@@ -174,7 +174,7 @@ export class DataService {
 			name: "McNuggets",
 			price: 149,
 			description: "Crispy chicken nuggets with dipping sauces.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/mc-nuggets.png",
 		},
 		{
 			id: 9,
@@ -183,7 +183,7 @@ export class DataService {
 			price: 249,
 			description:
 				"Famous fried chicken with a secret blend of 11 herbs and spices.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/og-recipe-chicken.png",
 		},
 		{
 			id: 10,
@@ -191,7 +191,7 @@ export class DataService {
 			name: "Zinger Burger",
 			price: 299,
 			description: "Spicy chicken fillet with lettuce and mayonnaise.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/zinger-burger.png",
 		},
 		{
 			id: 11,
@@ -200,7 +200,7 @@ export class DataService {
 			price: 499,
 			description:
 				"12-inch sub with your choice of fillings and toppings.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/footlong-sub.png",
 		},
 		{
 			id: 12,
@@ -208,7 +208,7 @@ export class DataService {
 			name: "Veggie Delight Sub",
 			price: 349,
 			description: "Fresh veggie sub with lettuce, tomato, and cucumber.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/veggie-delight-sub.png",
 		},
 		{
 			id: 13,
@@ -216,7 +216,7 @@ export class DataService {
 			name: "Vanilla Ice Cream Tub",
 			price: 149,
 			description: "Classic vanilla ice cream in a family-size tub.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/vanilla-ice-cream-tub.png",
 		},
 		{
 			id: 14,
@@ -224,7 +224,7 @@ export class DataService {
 			name: "Chocolate Cone",
 			price: 79,
 			description: "Creamy chocolate ice cream in a crispy cone.",
-			imageUrl: "https://via.placeholder.com/100",
+			imageUrl: "assets/images/food/chocolate-cone.png",
 		},
 	];
 
