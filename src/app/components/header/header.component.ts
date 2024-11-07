@@ -12,8 +12,8 @@ import { AuthService } from "../../services/auth.service"; // Import AuthService
 	styleUrl: "./header.component.css",
 })
 export class HeaderComponent implements OnInit {
-	title = "Swiggy";
 	totalItems: number = 0;
+	name: string = "";
 
 	constructor(
 		private cartService: CartService,
@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
 		this.cartService.itemCount$.subscribe((count) => {
 			this.totalItems = count;
 		});
+		this.name = this.authService.getUserName(); // Get the user's name
 	}
 
 	// Method to check if the user is logged in

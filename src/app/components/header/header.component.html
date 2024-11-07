@@ -1,53 +1,58 @@
-<nav class="flex justify-between items-center bg-white shadow-md p-4">
+<nav class="flex justify-between items-center bg-white shadow-md p-4 h-30">
 	<!-- Logo Section -->
-	<div class="flex items-center">
+	<div class="flex items-center mx-20">
 		<a routerLink="/" class="flex items-center">
 			<img
 				src="assets/images/swiggy-logo.png"
 				alt="Swiggy Logo"
-				class="h-8 mr-2"
+				class="h-12 mr-2"
 			/>
-			<h1 class="text-2xl font-bold text-gray-800">{{ title }}</h1>
+			<!-- <h1 class="text-2xl font-bold text-gray-800">{{ title }}</h1> -->
 		</a>
 	</div>
 
 	<!-- Navigation Links -->
 
-	<div class="flex items-center gap-x-6 mr-10">
+	<div class="flex text-gray-600 font-bold items-center gap-x-16 mr-10">
 		<a
 			routerLink="/favs"
-			class="text-gray-700 hover:text-orange-500 transition duration-200"
-			>Favorites</a
+			class="hover:text-orange-500 transition duration-200"
+		>
+			<i class="fa-regular fa-heart mr-2"></i>
+
+			Favorites</a
 		>
 		<a
 			routerLink="/cart"
-			class="relative text-gray-700 mr-5 hover:text-orange-500 transition duration-200"
+			class="relative hover:text-orange-500 transition duration-200"
 		>
-			Cart
-			<span
-				class="absolute top-1 -right-8 bg-red-500 text-white rounded-full px-1 text-xs"
-			>
+			<span class="bg-red-500 text-white py-1 px-2 mr-2 text-xs">
 				{{ totalItems }}
 			</span>
+			Cart
 		</a>
 		<a
 			routerLink="/orders"
-			class="text-gray-700 hover:text-orange-500 transition duration-200"
-			>Orders</a
+			class="hover:text-orange-500 transition duration-200"
+		>
+			<i class="fa-regular fa-circle-check mr-2"></i>
+			Orders</a
 		>
 		<!-- Show Login or Logout based on user’s authentication status -->
 		<ng-container *ngIf="!isLoggedIn(); else loggedInTemplate">
 			<a
 				routerLink="/login"
-				class="text-gray-700 hover:text-orange-500 bg-orange-400 py-2 px-4 rounded text-white transition duration-200"
+				class="hover:text-orange-500 bg-orange-400 py-2 px-4 rounded text-white transition duration-200"
 				>Sign in</a
 			>
 		</ng-container>
 		<ng-template #loggedInTemplate>
 			<a
 				(click)="logout()"
-				class="text-gray-700 hover:text-orange-500 transition duration-200"
-				>Logout</a
+				class="hover:text-orange-500 transition duration-200"
+			>
+				<i class="fa-regular fa-user mr-2"></i>
+				{{ name }}</a
 			>
 		</ng-template>
 	</div>
