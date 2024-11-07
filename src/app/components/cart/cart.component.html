@@ -23,6 +23,8 @@
 	<h3 class="mt-4 text-lg font-semibold">
 		Total Cost: {{ totalCost | currency }}
 	</h3>
+
+	<button (click)="onOrder()" class="order-button">Order</button>
 </div>
 <ng-template #emptyCart>
 	<p class="text-gray-500">Your cart is empty.</p>

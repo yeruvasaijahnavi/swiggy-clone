@@ -50,4 +50,12 @@ export const routes: Routes = [
 			);
 		},
 	},
+	{
+		path: "orders",
+		loadComponent() {
+			return import("./components/orders/orders.component").then(
+				(m) => m.OrdersComponent
+			);
+		},
+	},
 ];
