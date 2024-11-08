@@ -1,8 +1,8 @@
-<div class="max-w-md mx-auto bg-white shadow-md rounded-md p-4">
+<div class="max-w-3xl my-20 mx-auto bg-white shadow-md rounded-md p-4">
 	<!-- Header Section -->
 	<h2 class="text-xl font-semibold mb-4">Your Cart</h2>
 
-	<!-- <div class="restaurant-menu mt-20" *ngIf="restaurant">
+	<!-- <div class="restaurant-menu mt-20" *ngIf="cartItems.length > 0">
 		<div class="mb-10 ml-4 rounded-3xl p-5 rest-details">
 			<div class="bg-white rounded-3xl p-5 border">
 				<h2 class="text-2xl font-black mb-10">{{ restaurant.name }}</h2>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 		</div>
-		</div> -->
+	</div> -->
 
 	<!-- Cart Items -->
 	<div
@@ -34,12 +34,11 @@
 					{{ item.quantity }}
 				</p>
 			</div>
-			<button
+			<i
 				(click)="removeFromCart(item)"
-				class="bg-red-500 text-white rounded px-3 py-1 hover:bg-red-600 transition duration-200"
+				class="fa-solid fa-trash text-red-500 rounded px-3 py-1 hover:text-red-600 transition duration-200"
 			>
-				Remove
-			</button>
+			</i>
 		</div>
 
 		<!-- Order Details -->

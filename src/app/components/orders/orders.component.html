@@ -1,5 +1,5 @@
 <div
-	class="orders-container bg-white border border-gray-300 rounded-lg p-4 w-[800px] mx-auto"
+	class="orders-container my-20 bg-white border border-gray-300 rounded-lg p-4 w-[800px] mx-auto"
 >
 	<h2 class="text-xl font-semibold text-gray-800 mb-4">Your Orders</h2>
 
@@ -12,11 +12,6 @@
 	<div *ngFor="let order of orders" class="order mb-6">
 		<div class="flex justify-between items-start">
 			<div class="flex items-start">
-				<img
-					src="https://placehold.co/100x100"
-					alt="{{ order.restaurantName }}"
-					class="w-20 h-20 object-cover rounded-lg"
-				/>
 				<div class="ml-4">
 					<h3 class="text-xl font-semibold text-gray-800">
 						{{ order.restaurantName }}
