@@ -1,23 +1,33 @@
-<div class="max-w-4xl mx-auto">
+<div class="max-w-3xl mx-auto">
 	<!-- Restaurant Info -->
-	<div class="restaurant-menu" *ngIf="restaurant">
-		<h2 class="text-2xl font-bold">{{ restaurant.name }}</h2>
-		<p>{{ restaurant.description }}</p>
-		<p>{{ restaurant.location }}</p>
-		<h3 class="text-xl mt-4">Menu Items</h3>
-		<div class="menu-items grid grid-cols-1 gap-4">
+	<div class="restaurant-menu mt-20" *ngIf="restaurant">
+		<div class="mb-10 ml-4">
+			<h2 class="text-2xl font-black">{{ restaurant.name }}</h2>
+			<p>{{ restaurant.description }}</p>
+			<p>{{ restaurant.location }}</p>
+		</div>
+		<div class="menu-items grid grid-cols-1">
+			<h3 class="text-xl pt-4 ml-4 border-t border-gray-300 font-bold">
+				Recommended
+			</h3>
 			<div
 				*ngFor="let menuItem of menuItems"
-				class="bg-white rounded-lg shadow-md p-4 mb-6"
+				class="bg-white border-b border-gray-300 rounded-lg p-4 mb-6"
 			>
-				<div class="flex items-center">
+				<div class="flex items-cente font-bold">
 					<div class="flex-grow">
-						<h2 class="text-xl font-bold">{{ menuItem.name }}</h2>
-						<p class="text-gray-600">
+						<h2 class="text-lg text-gray-700">
+							{{ menuItem.name }}
+						</h2>
+						<p class="">
 							{{ menuItem.price | currency : "INR" : "symbol" }}
 						</p>
+						<p class="text-sm mt-2 text-green-800">
+							<i class="fa-solid fa-star mr-1 h-1"></i
+							>{{ menuItem.rating }}
+						</p>
 
-						<p class="mt-2 text-gray-700">
+						<p class="mt-2 font-semibold text-md text-gray-500">
 							{{ menuItem.description }}
 						</p>
 					</div>
@@ -32,21 +42,23 @@
 
 				<div class="flex justify-between">
 					<!-- Quantity Controls -->
-					<div class="flex items-center justify-between mt-4">
+					<div
+						class="flex items-center text-green-600 justify-between font-black mt-4 rounded-xl border border-green-600"
+					>
 						<button
 							(click)="decreaseQuantity(menuItem)"
-							class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+							class="p-2 px-4 rounded-l-xl hover:bg-gray-200"
 						>
 							-
 						</button>
 						<input
 							type="number"
 							[(ngModel)]="menuItem.quantity"
-							class="w-12 text-center"
+							class="w-12 text-center quantity-display"
 						/>
 						<button
 							(click)="increaseQuantity(menuItem)"
-							class="bg-gray-300 text-gray-700 px-3 py-1 rounded-lg"
+							class="p-2 px-4 rounded-r-xl hover:bg-gray-200"
 						>
 							+
 						</button>
@@ -55,7 +67,7 @@
 					<!-- Add to Cart Button -->
 					<button
 						(click)="addToCart(menuItem)"
-						class="mt-4 w-28 bg-green-500 text-white py-2 rounded-lg"
+						class="mt-4 w-28 font-black hover:bg-gray-200 text-green-600 border border-green-600 py-2 rounded-lg"
 					>
 						ADD
 					</button>

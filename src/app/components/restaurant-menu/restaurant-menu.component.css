@@ -1,0 +1,5 @@
+.quantity-display::-webkit-outer-spin-button,
+.quantity-display::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

@@ -19,6 +19,7 @@ export interface MenuItem {
 	price: number;
 	description: string;
 	imageUrl: string;
+	rating: number;
 	quantity?: number;
 }
 
@@ -108,6 +109,7 @@ export class DataService {
 			description:
 				"Spicy stir-fried chicken with peanuts and vegetables.",
 			imageUrl: "assets/images/food/kung-pao-chicken.png",
+			rating: 4.5,
 		},
 		{
 			id: 2,
@@ -117,6 +119,7 @@ export class DataService {
 			description:
 				"Crispy rolls filled with fresh vegetables and shrimp.",
 			imageUrl: "assets/images/food/spring-rolls.png",
+			rating: 4.2,
 		},
 		{
 			id: 3,
@@ -126,6 +129,7 @@ export class DataService {
 			description:
 				"Soft, steamed dumplings filled with vegetables or chicken.",
 			imageUrl: "assets/images/food/steamed-momos.png",
+			rating: 4.7,
 		},
 		{
 			id: 4,
@@ -135,6 +139,7 @@ export class DataService {
 			description:
 				"Crispy momos fried to perfection, served with spicy sauce.",
 			imageUrl: "assets/images/food/pan-fried-momos.png",
+			rating: 4.3,
 		},
 		{
 			id: 5,
@@ -143,6 +148,7 @@ export class DataService {
 			price: 249,
 			description: "Beef burger with lettuce, tomato, and cheese.",
 			imageUrl: "assets/images/food/classic-burger.png",
+			rating: 4.6,
 		},
 		{
 			id: 6,
@@ -151,6 +157,7 @@ export class DataService {
 			price: 279,
 			description: "Crispy chicken burger with spicy sauce and pickles.",
 			imageUrl: "assets/images/food/spicy-chicken-burger.png",
+			rating: 4.4,
 		},
 		{
 			id: 7,
@@ -160,6 +167,7 @@ export class DataService {
 			description:
 				"Iconic burger with two beef patties and special sauce.",
 			imageUrl: "assets/images/food/big-mac.png",
+			rating: 4.8,
 		},
 		{
 			id: 8,
@@ -168,6 +176,7 @@ export class DataService {
 			price: 149,
 			description: "Crispy chicken nuggets with dipping sauces.",
 			imageUrl: "assets/images/food/mc-nuggets.png",
+			rating: 4.1,
 		},
 		{
 			id: 9,
@@ -177,6 +186,7 @@ export class DataService {
 			description:
 				"Famous fried chicken with a secret blend of 11 herbs and spices.",
 			imageUrl: "assets/images/food/og-recipe-chicken.png",
+			rating: 4.7,
 		},
 		{
 			id: 10,
@@ -185,6 +195,7 @@ export class DataService {
 			price: 299,
 			description: "Spicy chicken fillet with lettuce and mayonnaise.",
 			imageUrl: "assets/images/food/zinger-burger.png",
+			rating: 4.5,
 		},
 		{
 			id: 11,
@@ -194,6 +205,7 @@ export class DataService {
 			description:
 				"12-inch sub with your choice of fillings and toppings.",
 			imageUrl: "assets/images/food/footlong-sub.png",
+			rating: 4.6,
 		},
 		{
 			id: 12,
@@ -202,6 +214,7 @@ export class DataService {
 			price: 349,
 			description: "Fresh veggie sub with lettuce, tomato, and cucumber.",
 			imageUrl: "assets/images/food/veggie-delight-sub.png",
+			rating: 4.2,
 		},
 		{
 			id: 13,
@@ -210,6 +223,7 @@ export class DataService {
 			price: 149,
 			description: "Classic vanilla ice cream in a family-size tub.",
 			imageUrl: "assets/images/food/vanilla-ice-cream-tub.png",
+			rating: 4.4,
 		},
 		{
 			id: 14,
@@ -218,6 +232,7 @@ export class DataService {
 			price: 79,
 			description: "Creamy chocolate ice cream in a crispy cone.",
 			imageUrl: "assets/images/food/chocolate-cone.png",
+			rating: 4.3,
 		},
 	];
 
