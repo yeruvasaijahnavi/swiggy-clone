@@ -2,6 +2,22 @@
 	<!-- Header Section -->
 	<h2 class="text-xl font-semibold mb-4">Your Cart</h2>
 
+	<!-- <div class="restaurant-menu mt-20" *ngIf="restaurant">
+		<div class="mb-10 ml-4 rounded-3xl p-5 rest-details">
+			<div class="bg-white rounded-3xl p-5 border">
+				<h2 class="text-2xl font-black mb-10">{{ restaurant.name }}</h2>
+				<div class="font-semibold text-sm">
+					<p class="text-md mt-2 text-green-800">
+						<i class="fa-solid fa-star mr-1 h-1"></i
+						>{{ restaurant.rating }}
+					</p>
+					<p>{{ restaurant.duration }}</p>
+					<p>{{ restaurant.location }}</p>
+				</div>
+			</div>
+		</div>
+		</div> -->
+
 	<!-- Cart Items -->
 	<div
 		*ngIf="cartItems.length > 0; else emptyCart"

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { CartService } from "../../services/cart.service";
+import { Restaurant } from "../../services/data.service";
 import { CommonModule } from "@angular/common";
 import { OrderService } from "../../services/order.service";
 import { Router } from "@angular/router";
