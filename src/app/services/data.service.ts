@@ -22,13 +22,6 @@ export interface MenuItem {
 	quantity?: number;
 }
 
-export interface Review {
-	restaurantId: number;
-	reviewerName: string;
-	rating: number;
-	comment: string;
-}
-
 @Injectable({
 	providedIn: "root",
 })
@@ -228,31 +221,11 @@ export class DataService {
 		},
 	];
 
-	private reviews: Review[] = [
-		{
-			restaurantId: 1,
-			reviewerName: "John Doe",
-			rating: 5,
-			comment: "Delicious food and great ambiance!",
-		},
-		{
-			restaurantId: 2,
-			reviewerName: "Jane Smith",
-			rating: 4,
-			comment: "Good pasta, but a bit overpriced.",
-		},
-		// Add more reviews as needed
-	];
-
 	getRestaurants() {
 		return this.restaurants;
 	}
 
 	getMenuItems() {
 		return this.menuItems;
-	}
-
-	getReviews() {
-		return this.reviews;
 	}
 }
